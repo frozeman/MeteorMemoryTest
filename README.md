@@ -24,9 +24,9 @@ See OfflineCollection.js for details.
 
 
 it seems like the additional packages aren't included so you have to add them yourself using the meteorite package manager:
-    $ mrt install go-offline
-    $ mrt install router
-    $ mrt remove autopublish
+`$ mrt install go-offline`
+`$ mrt install router`
+`$ mrt remove autopublish`
     
     
 
