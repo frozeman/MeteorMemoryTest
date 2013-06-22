@@ -17,7 +17,7 @@ See OfflineCollection.js for details.
 
 
 
-==== additional packages used (meteorite)
+=== additional packages used (meteorite)
 - Meteor Router
 - go-offline (to prevent taht data gets stored persistenly) https://github.com/awwx/meteor-go-offline
 - autopublish -> removed
@@ -29,5 +29,5 @@ it seems like the additional packages aren't included so you have to add them yo
 `$ mrt remove autopublish`
 
 
-==== Screenshot
+=== Screenshot
 ![screen shot 2013-06-21 at 22 07 16](https://f.cloud.github.com/assets/232662/689380/fbd767fa-dab0-11e2-853d-87123b3afc0d.png)
