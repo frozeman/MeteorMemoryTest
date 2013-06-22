@@ -17,7 +17,17 @@ See OfflineCollection.js for details.
 
 
 
-additional packages used (meteorite)
+==== additional packages used (meteorite)
 - Meteor Router
 - go-offline (to prevent taht data gets stored persistenly) https://github.com/awwx/meteor-go-offline
 - autopublish -> removed
+
+
+it seems like the additional packages aren't included so you have to add them yourself using the meteorite package manager:
+    $ mrt install go-offline
+    $ mrt install router
+    $ mrt remove autopublish
+    
+    
+
+
