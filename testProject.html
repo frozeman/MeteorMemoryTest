@@ -1,0 +1,33 @@
+<head>
+  <title>Memory Test Project</title>
+</head>
+
+<body>
+    <a href="/">Page 1</a><br>
+    <a href="/page2">Page 2</a>
+
+  {{> container}}
+</body>
+
+
+<template name="container">
+  {{container}}
+</template>
+
+
+<template name="page1">
+  <h1>Page 1</h1>
+  {{greeting}}
+</template>
+
+
+<template name="page2">
+  <h1>Page 2</h1>
+  {{#each data}}
+    {{> page2Sub}}
+  {{/each}}
+</template>
+
+<template name="page2Sub">
+    {{text}}
+</template>
