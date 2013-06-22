@@ -29,5 +29,5 @@ it seems like the additional packages aren't included so you have to add them yo
 `$ mrt remove autopublish`
     
     
-
+![screen shot 2013-06-21 at 22 29 13](https://f.cloud.github.com/assets/232662/689389/61a30418-dab1-11e2-8277-d8d29a1bf9b4.png)
 
