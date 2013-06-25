@@ -1,5 +1,4 @@
 // Packages used (meteorite)
-// Meteor Router
 // go-offline (to prevent taht data gets stored persistenly) https://github.com/awwx/meteor-go-offline
 // autopublish removed
 
@@ -7,46 +6,39 @@
 if (Meteor.isClient) {
 
   Session.setDefault('container','page1');
+  var page1 = function () {
+    // -> COMMENT THIS OUT (to test only template switching)
+    // clean the database
+    OfflineCollections.clean('collection');
+    // -> COMMENT THESE OUT *END*
 
-  Meteor.Router.add({
-      '/': function(){
+    Session.set('container','page1');
+  };
 
+  var page2 = function () {
+    // -> COMMENT THIS OUT (to test only template switching)
+    // fill the collection, on each page visit
+    for (var i = 0; i < 100; i++) {
+      DB.collection.insert({
+        text: 'Some Text from the Collection'
+      });
+    };
+    // -> COMMENT THESE OUT *END*
 
-          // -> COMMENT THIS OUT (to test only template switching)
-          // clean the database
-          OfflineCollections.clean('collection');
-          // -> COMMENT THESE OUT *END*
-
-          Session.set('container','page1');
-      },
-      '/page2': function(){
-
-          // -> COMMENT THIS OUT (to test only template switching)
-          // fill the collection, on each page visit
-          for (var i = 0; i < 100; i++) {
-            DB.collection.insert({
-              text: 'Some Text from the Collection'
-            });
-          };
-          // -> COMMENT THESE OUT *END*
-
-          Session.set('container','page2');
-      },
-
-      '*': 'not_found'
-  });
+    Session.set('container','page2');
+  };
 
   Template.startExperiment.events({
     'click button': function () {
       var startTime = +new Date;
-      // switch back and forth for 20 seconds.
+      // switch back and forth for 60 seconds.
       setInterval(function () {
-        if ((+new Date) - startTime > 20 * 1000)
+        if ((+new Date) - startTime > 60 * 1000)
           return;
 
-        Meteor.Router.to('/');
+        page1();
         setTimeout(function () {
-          Meteor.Router.to('/page2');
+          page2();
         }, 200);
       }, 500);
     }
