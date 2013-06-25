@@ -36,6 +36,21 @@ if (Meteor.isClient) {
       '*': 'not_found'
   });
 
+  Template.startExperiment.events({
+    'click button': function () {
+      var startTime = +new Date;
+      // switch back and forth for 20 seconds.
+      setInterval(function () {
+        if ((+new Date) - startTime > 20 * 1000)
+          return;
+
+        Meteor.Router.to('/');
+        setTimeout(function () {
+          Meteor.Router.to('/page2');
+        }, 200);
+      }, 500);
+    }
+  });
 
   // template container
   Template.container.container = function () {
@@ -61,19 +76,6 @@ if (Meteor.isClient) {
   // });
 
 
-  Meteor.startup(function () {
-
-
-    // switch back and forth
-    setInterval(function () {
-      Meteor.Router.to('/');
-      setTimeout(function () {
-        Meteor.Router.to('/page2');
-      }, 200);
-    }, 500);
-
-
-  });
 }
 
 // create collection

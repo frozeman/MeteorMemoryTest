@@ -3,11 +3,19 @@
 </head>
 
 <body>
+  {{> startExperiment}}
+
     <a href="/">Page 1</a><br>
     <a href="/page2">Page 2</a>
 
   {{> container}}
 </body>
+
+<template name="startExperiment">
+  <p>
+    <button>Start Experiment</button>
+  </p>
+</template>
 
 
 <template name="container">
