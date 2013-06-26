@@ -1,7 +1,3 @@
-// Packages used (meteorite)
-// go-offline (to prevent taht data gets stored persistenly) https://github.com/awwx/meteor-go-offline
-// autopublish removed
-
 
 if (Meteor.isClient) {
 
@@ -9,7 +5,9 @@ if (Meteor.isClient) {
   var page1 = function () {
     // -> COMMENT THIS OUT (to test only template switching)
     // clean the database
-    OfflineCollections.clean('collection');
+    _.each(DB.collection.find({}).fetch(), function(item){
+        DB.collection.remove({_id: item._id});
+    });
     // -> COMMENT THESE OUT *END*
 
     Session.set('container','page1');
@@ -72,7 +70,7 @@ if (Meteor.isClient) {
 
 // create collection
 DB = {};
-DB.collection = new Meteor.Collection('collection');
+DB.collection = new Meteor.Collection(null);
 
 
 
