@@ -43,8 +43,8 @@ if (Meteor.isClient) {
   });
 
   // template container
-  Template.container.container = function () {
-    return new Handlebars.SafeString(Template[Session.get('container')]());
+  Template.container.addPage = function () {
+    return Template[Session.get('container')];
   };
 
 
