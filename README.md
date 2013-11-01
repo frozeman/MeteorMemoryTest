@@ -1,8 +1,6 @@
 MeteorMemoryTest
 ================
 
-Edit: related issue can be found here: https://github.com/meteor/meteor/issues/1157
-
 This is a test i wrote to show how it stacks up memory in meteor js, when using local collection.
 
 What i do here is having two sites, which are switched back and forth, and you can monitor the memory using Chrome -> Dev Tools -> Timeline Tab -> button on the bottom, to record
