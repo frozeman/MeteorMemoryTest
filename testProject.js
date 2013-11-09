@@ -26,21 +26,6 @@ if (Meteor.isClient) {
     Session.set('container','page2');
   };
 
-  Template.startExperiment.events({
-    'click button': function () {
-      var startTime = +new Date;
-      // switch back and forth for 60 seconds.
-      setInterval(function () {
-        if ((+new Date) - startTime > 60 * 1000)
-          return;
-
-        page1();
-        setTimeout(function () {
-          page2();
-        }, 200);
-      }, 500);
-    }
-  });
 
   // template container
   Template.container.addPage = function () {
@@ -57,13 +42,30 @@ if (Meteor.isClient) {
   };
 
 
-  // Template.hello.events({
-  //   'click input' : function () {
-  //     // template data, if any, is available in 'this'
-  //     if (typeof console !== 'undefined')
-  //       console.log("You pressed the button");
-  //   }
-  // });
+  // EVENTS
+  UI.body.events({
+    'click button.page1' : function () {
+      console.log('switched to page 1');
+      page1();
+    },
+    'click button.page2' : function () {
+      console.log('switched to page 2');
+      page2();
+    },
+    'click button.start': function () {
+      var startTime = +new Date;
+      // switch back and forth for 60 seconds.
+      setInterval(function () {
+        if ((+new Date) - startTime > 60 * 1000)
+          return;
+
+        page1();
+        setTimeout(function () {
+          page2();
+        }, 200);
+      }, 500);
+    }
+  });
 
 
 }
