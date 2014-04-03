@@ -15,12 +15,15 @@
 
 <template name="container">
   {{> addPage}}
+  {{! > DynamicTemplate placeholder="switchPage"}}
 </template>
 
 
 <template name="page1">
-  <h1>Page 1</h1>
-  {{greeting}}
+  <div class="testBlock">
+    <h1>Page 1</h1>
+    {{greeting}}
+  </div>
 </template>
 
 
