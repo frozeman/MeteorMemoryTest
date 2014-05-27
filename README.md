@@ -4,6 +4,9 @@ MeteorMemoryTest
 Related issue: https://github.com/meteor/meteor/issues/1997
 
 Run the test and see the memory console (Chrome Developer Tools -> timeline)
-uncomment line 28 in the testProject.js to and recheck, and you will see the memory grow.
+In the first run everything seems fine.
+The memory heap starts with 11.2MB and after the 1 minute run it has, after garbage collection 11.8MB.
 
-The template instance passed to the event doesn't seem to get cleaned up properly.
+If you uncomment line 32 - 37, which simply adds a dummy event to the "page2" template
+pointing to an element in the "page2Sub" template and you run the test again, you will see that the memory which starts with
+11.2MB ends up with 15MB after the test run and garbage collection.
