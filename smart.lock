@@ -1,15 +1,7 @@
 {
   "meteor": {},
   "dependencies": {
-    "basePackages": {
-      "view-manager": {}
-    },
-    "packages": {
-      "view-manager": {
-        "git": "https://github.com/frozeman/meteor-view-manager.git",
-        "tag": "v0.1.5",
-        "commit": "2631b5adf4c82f58158a92bbb4437b6e4e8a607b"
-      }
-    }
+    "basePackages": {},
+    "packages": {}
   }
 }
