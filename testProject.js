@@ -25,7 +25,13 @@ if (Meteor.isClient) {
   };
 
   Template.page2.data = function () {
-    return [{text: 'first text'},{text: 'second text'}];
+    var items = [];
+    for (var i = 300; i >= 0; i--) {
+      items.push({
+        text: 'dsasda'+ i
+      });
+    };
+    return items;
   };
 
 
